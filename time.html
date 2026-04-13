@@ -1,15 +1,23 @@
 <!doctype html>
 <html>
-<body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="padding: 20px; font-family: sans-serif;">
 
-    <input type="text" id="input" size="40" placeholder="thời gian bắt đầu + thời gian in = thời gian in xong" oninput="tinh()">
-    <span id="result"></span>
+    <input type="text" id="input" 
+        style="width: 100%; font-size: 24px; padding: 10px; box-sizing: border-box;" 
+        placeholder="16h45+2h44" oninput="tinh()">
+    
+    <div id="result" style="font-size: 30px; font-weight: bold; margin-top: 20px;"></div>
 
     <script>
         function tinh() {
             const input = document.getElementById('input').value;
+            const resElement = document.getElementById('result');
+            
             if (!input.includes('+')) {
-                document.getElementById('result').innerText = "";
+                resElement.innerText = "";
                 return;
             }
 
@@ -26,7 +34,7 @@
             const resH = Math.floor(tongPhut / 60);
             const resM = tongPhut % 60;
 
-            document.getElementById('result').innerText = " = " + resH + "h" + (resM < 10 ? '0' + resM : resM);
+            resElement.innerText = " = " + resH + "h" + (resM < 10 ? '0' + resM : resM);
         }
     </script>
 
